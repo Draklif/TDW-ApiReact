@@ -1,0 +1,45 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.header {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+.nav {
+  background-color: #555;
+  color: white;
+  width: 200px;
+  padding: 1rem;
+}
+.list {
+  list-style: none;
+  padding: 0;
+}
+.listItem {
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: .4s;
+}
+.listItem:hover {
+  padding: 16px;
+  background-color: #333;
+  transform: scale(1.2);
+}
+.container {
+  display: flex;
+  flex-grow: 1;
+}
+.main {
+  flex-grow: 1;
+  padding: 1rem;
+}
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}

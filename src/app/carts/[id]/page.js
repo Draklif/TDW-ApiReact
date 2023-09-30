@@ -1,21 +1,20 @@
 "use client"
 
-import styles from './page.module.css'
+import styles from '../../page.module.css'
 import axios from 'axios'
 import { useState, useEffect } from 'react';
 import Link from 'next/link'
 
-export default function Home() {
-  const [carts, setCarts] = useState([]);
+export default function Home({ params }) {
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('https://fakestoreapi.com/carts')
+    axios.get(`https://fakestoreapi.com/carts/${ params.id }`)
       .then((response) => {
-        setCarts(response.data)
+        setProducts(response.data.products)
         setLoading(false)
-        console.log(response.data)
-        console.log(carts);
+        console.log(response.data.products);
       })
       .catch((error) => {
         console.error('Error al cargar:', error)
@@ -29,12 +28,12 @@ export default function Home() {
         <p>Cargando...</p>
       ) : (
         <div className={styles.grid}>
-          {carts.map((cart) => (
-            <div key={cart.id} className={styles.card}>
-              <h2>Cart {cart.id}</h2>
+          {products.map((product) => (
+            <div key={product.productId} className={styles.card}>
+              <h2>Product {product.productId}</h2>
               <div>
                 <Link
-                  href={`/carts/${cart.id}`}
+                  href={`/products/${product.productId}`}
                   className=''
                 >Ver detalle</Link>
               </div>

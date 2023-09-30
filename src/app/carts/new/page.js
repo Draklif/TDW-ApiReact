@@ -10,6 +10,7 @@ export default function Home() {
     }
 
   return (
+    // Generado con GPT, falta corregir estilos y forma
     <div className={styles.form}>
       <h2>Crear un nuevo carrito</h2>
       <form onSubmit={handleSubmit}>
@@ -17,19 +18,12 @@ export default function Home() {
           <label htmlFor="name">Nombre del Carrito:</label>
           <input
             type="text"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
           />
         </div>
         <div className={styles.formGroup}>
           <label htmlFor="description">Descripción:</label>
           <textarea
             id="description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
           />
         </div>
         <button type="submit">Crear Carrito</button>

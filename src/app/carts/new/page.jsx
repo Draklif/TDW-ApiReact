@@ -1,22 +1,22 @@
 "use client";
 
-import { useState } from 'react'
-import axios from 'axios'
-import styles from "../../forms.module.css"
+import { useState } from "react";
+import axios from "axios";
+import styles from "../../forms.module.css";
 
 export default function Home() {
-  const [products, setProducts] = useState([])
-  const [productName, setProductName] = useState('')
-  const [productQuantity, setProductQuantity] = useState('')
+  const [products, setProducts] = useState([]);
+  const [productName, setProductName] = useState("");
+  const [productQuantity, setProductQuantity] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (productName && productQuantity) addProduct()
+    if (productName && productQuantity) addProduct();
 
     if (products.length === 0) {
-      alert('Agregue al menos un producto al carrito.')
-      return
+      alert("Agregue al menos un producto al carrito.");
+      return;
     }
 
     const newCart = {
@@ -26,37 +26,44 @@ export default function Home() {
         productId: product.id,
         quantity: product.quantity,
       })),
-    }
+    };
 
-    axios.post('https://fakestoreapi.com/carts', newCart)
-    .then((response) => {
-      console.log('Carrito creado:', response.data);
-      alert('Carrito creado correctamente')
-      setProducts([]);
-      setProductName('');
-      setProductQuantity('');
-    })
-    .catch((error) => {
-      console.error('Error al crear:', error)
-    })
-  }
+    axios
+      .post("https://fakestoreapi.com/carts", newCart)
+      .then((response) => {
+        console.log("Carrito creado:", response.data);
+        alert("Carrito creado correctamente");
+        setProducts([]);
+        setProductName("");
+        setProductQuantity("");
+      })
+      .catch((error) => {
+        console.error("Error al crear:", error);
+      });
+  };
 
   const addProduct = () => {
     if (productName && productQuantity) {
-      const newProduct = { id: (Math.random() * (999 - 100) + 100), name: productName, quantity: productQuantity }
-      setProducts([...products, newProduct])
-      setProductName('')
-      setProductQuantity('')
+      const newProduct = {
+        id: Math.random() * (999 - 100) + 100,
+        name: productName,
+        quantity: productQuantity,
+      };
+      setProducts([...products, newProduct]);
+      setProductName("");
+      setProductQuantity("");
     } else {
-      alert('Ingrese los datos.')
+      alert("Ingrese los datos.");
     }
-  }
+  };
 
   return (
     <>
       <form onSubmit={handleSubmit} className={styles.form}>
         <div>
-          <label htmlFor="productName" className={styles.label}>Nombre del Producto:</label>
+          <label htmlFor="productName" className={styles.label}>
+            Nombre del Producto:
+          </label>
           <input
             type="text"
             id="productName"
@@ -66,7 +73,9 @@ export default function Home() {
           />
         </div>
         <div>
-          <label htmlFor="productQuantity" className={styles.label}>Cantidad:</label>
+          <label htmlFor="productQuantity" className={styles.label}>
+            Cantidad:
+          </label>
           <input
             type="number"
             id="productQuantity"
@@ -78,7 +87,7 @@ export default function Home() {
         <button type="button" onClick={addProduct} className={styles.button}>
           Agregar Producto
         </button>
-        { products.length > 0 ? (
+        {products.length > 0 ? (
           <>
             <div>
               <h3>Productos Agregados:</h3>
@@ -90,16 +99,14 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-            <button 
-              type="submit" 
-              className={styles.buttonSubmit}
-            >
+            <button type="submit" className={styles.buttonSubmit}>
               Crear Carrito
             </button>
-          </>) : (
-            <div></div>
-      )}
+          </>
+        ) : (
+          <div></div>
+        )}
       </form>
     </>
-  )
+  );
 }

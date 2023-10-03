@@ -29,6 +29,7 @@ export default function Home({ params }) {
         <div className={styles.flex}>
           <p>Producto {product.id} - {product.title}</p>
           <p>${product.price}</p>
+          <img src={product.image} className={styles.img}></img>
           <p>Categoria: {product.category}</p>
           <div>
             <Link

@@ -22,9 +22,9 @@ export default function RootLayout({ children }) {
             <nav className={styles.nav}>
               <ul className={styles.list}>
                 <li className={styles.listItem}><Link href='/'>Carts</Link></li>
-                <li className={styles.listItem}>Products</li>
+                <li className={styles.listItem}><Link href='/products'>Products</Link></li>
                 <li className={styles.listItem}><Link href='/carts/new'>New Carts</Link></li>
-                <li className={styles.listItem}>New Products</li>
+                <li className={styles.listItem}><Link href='/products/new'>New Products</Link></li>
               </ul>
             </nav>
             <main className={styles.main}>

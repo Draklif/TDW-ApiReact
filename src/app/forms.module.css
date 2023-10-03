@@ -1,0 +1,75 @@
+.form {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    overflow: auto;
+    max-height: 80vh;
+}
+  
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+  
+.label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+  
+.userInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+  
+.button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    margin-bottom: 16px;
+    transition: .4s;
+}
+  
+.buttonSubmit {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: .4s;
+}
+  
+.button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1) rotate(1deg);
+}
+
+.buttonSubmit:hover {
+    background-color: #21943c;
+    transform: scale(1.1) rotate(1deg);
+}
+  
+.list {
+    list-style: none;
+    padding: 0;
+}
+  
+.listItem {
+    margin-bottom: 6px;
+}
+  
